@@ -1,0 +1,10 @@
+all clear;
+clc;
+waveFile='G:\Matlab\bin\Mtech Project\Hindi Dataset\wav\bathref_001.wav';
+au=myAudioRead(waveFile); y=au.signal; fs=au.fs;
+frameSize = 256;
+overlap = 128;
+opt=endPointDetect('defaultOpt');
+opt.method='vol';
+showPlot=1;
+[epInSampleIndex, epInFrameIndex, soundSegment, zeroOneVec, others] =endPointDetect(au, opt, showPlot);
